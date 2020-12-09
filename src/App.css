@@ -1,6 +1,6 @@
-body {
+.container {
   width: 75%;
-  margin:auto;
+  margin: auto;
 }
 
 .light {

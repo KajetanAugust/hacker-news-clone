@@ -31,8 +31,8 @@ class App extends React.Component {
                                 <Route exact path='/'>
                                     <Redirect to='/feed/top'/>
                                 </Route>
-                                <Route exact path='/feed/top' component={Feed}/>
-                                <Route exact path='/feed/new' component={Feed}/>
+                                <Route exact path='/feed/top' render={() => <Feed type='top' /> }/>
+                                <Route exact path='/feed/new' render={() => <Feed type='new' /> }/>
                             </Switch>
 
                         </div>

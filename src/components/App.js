@@ -1,12 +1,48 @@
-import logo from '../logo.svg';
-import '../App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      App
-    </div>
-  );
+import '../App.css'
+
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { ThemeProvider } from "../contexts/theme";
+
+import Feed from "./Feed";
+import Nav from "./Nav";
+
+
+class App extends React.Component {
+
+    state={
+        theme: 'light',
+        toggleTheme: () => {
+            this.setState(({ theme }) => ({
+                theme: theme === 'light' ? 'dark' : 'light'
+            }))
+        }
+    }
+
+    render() {
+        return(
+            <Router>
+                <ThemeProvider value={this.state}>
+                    <div className={this.state.theme}>
+                        <div className='container'>
+                            <Nav />
+                            <Switch>
+                                <Route exact path='/'>
+                                    <Redirect to='/feed/top'/>
+                                </Route>
+                                <Route exact path='/feed/top' component={Feed}/>
+                                <Route exact path='/feed/new' component={Feed}/>
+                            </Switch>
+
+                        </div>
+                    </div>
+
+                </ThemeProvider>
+            </Router>
+        )
+    }
 }
 
-export default App;
+
+export default App

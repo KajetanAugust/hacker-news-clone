@@ -1,6 +1,8 @@
 import React from 'react'
-import Post from "./Post";
 import { fetchMainPosts } from "../utils/API";
+
+import Post from "./Post";
+import Loading from "./Loading";
 
 class Feed extends React.Component{
 
@@ -52,7 +54,7 @@ class Feed extends React.Component{
 
             <div className="App">
                 {loading
-                    ? <h3>Loading...</h3>
+                    ? <Loading text='Loading' speed={300}/>
                     : posts.map(post => <Post key={post.id} post={post}/>)
                 }
             </div>

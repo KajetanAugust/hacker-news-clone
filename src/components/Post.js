@@ -1,27 +1,30 @@
 import React from 'react'
 import PostMeta from "./PostMeta";
 import Title from "./Title";
+import { ThemeConsumer } from "../contexts/theme";
 
 export default class Post extends React.Component {
     render() {
-        const { post } = this.props
+        const {post} = this.props
         return (
-            <div>
-                <h3>
-                    <Title
-                        id={post.id}
-                        title={post.title}
-                        url={post.url}
-                    />
-                </h3>
+            <ThemeConsumer>
+                {({theme}) => (
+                    <div className={`post-container-${theme}`}>
+                            <Title
+                                id={post.id}
+                                title={post.title}
+                                url={post.url}
+                            />
 
-                <PostMeta
-                    by={post.by}
-                    time={post.time}
-                    id={post.id}
-                    descendants={post.descendants}
-                />
-            </div>
+                        <PostMeta
+                            by={post.by}
+                            time={post.time}
+                            id={post.id}
+                            descendants={post.descendants}
+                        />
+                    </div>
+                )}
+            </ThemeConsumer>
         );
     }
 }

@@ -8,7 +8,7 @@ const styles = {
         left: '0',
         right: '0',
         marginTop: '50px',
-        textAlign: 'center'
+        textAlign: 'center',
     }
 }
 
@@ -36,6 +36,7 @@ export default class Loading extends React.Component {
     }
 
     render() {
+
         return (
             <p style={styles.content}>
                 {this.state.content}

@@ -13,6 +13,7 @@ class Feed extends React.Component{
     }
     componentDidMount() {
         this.handleFetch()
+        console.log(this.state.posts)
     }
     componentDidUpdate(prevProps) {
         if (prevProps.type !== this.props.type) {
@@ -37,12 +38,6 @@ class Feed extends React.Component{
                 loading: false
             }))
     }
-
-    // isLoading() {
-    //     const { selectedType, posts, error } = this.state
-    //
-    //     return !posts[selectedType] && error === null
-    // }
 
     render() {
 

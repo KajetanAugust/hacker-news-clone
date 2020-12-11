@@ -11,6 +11,7 @@ class Feed extends React.Component{
         error: null,
         loading: true,
     }
+
     componentDidMount() {
         this.handleFetch()
         console.log(this.state.posts)

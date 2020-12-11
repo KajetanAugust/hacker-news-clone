@@ -35,7 +35,7 @@ nav li {
   list-style-type: none;
   margin-right: 15px;
   margin-left: 0;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.2rem;
 }
 
@@ -64,7 +64,7 @@ nav button {
 .link {
   color: #A3320B;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
 }
 

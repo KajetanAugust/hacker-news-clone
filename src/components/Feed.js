@@ -14,7 +14,7 @@ class Feed extends React.Component{
 
     componentDidMount() {
         this.handleFetch()
-        console.log(this.state.posts)
+        // console.log(this.state.posts)
     }
     componentDidUpdate(prevProps) {
         if (prevProps.type !== this.props.type) {
@@ -43,7 +43,7 @@ class Feed extends React.Component{
     render() {
 
         const { posts, error, loading } = this.state
-        console.log(this.state.posts)
+        // console.log(this.state.posts)
 
         return (
 

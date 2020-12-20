@@ -1,9 +1,9 @@
 import React from 'react'
 import queryString from 'query-string'
-import { ThemeConsumer } from "../contexts/theme";
 import { fetchUser, fetchPosts } from "../utils/API";
 import Loading from "./Loading";
 import Post from "./Post";
+import { formatDate } from "../utils/helpers";
 
 export default class User extends React.Component {
 
@@ -41,21 +41,23 @@ export default class User extends React.Component {
         console.log(user)
         console.log(posts)
         return(
-
             <div>
                 <React.Fragment>
                     {
                         loadingUser
-                            ? <Loading text='Loading' speed={300}/>
+                            ? <Loading text='Loading User Data' speed={300}/>
                             //TODO: Add user metadata here
-                            : <h3 style={{color:'black'}}>{this.state.user.id}</h3>
+                            : <div className='user-data'>
+                                <h1>{user.id}</h1>
+                                <span>joined <b>{formatDate(user.created)}</b> has <b>{user.karma}</b> karma</span>
+                            </div>
                     }
                 </React.Fragment>
-
+                <h2>Posts</h2>
                 <React.Fragment>
                     {
                         loadingPosts
-                            ? <Loading text='Loading' speed={300}/>
+                            ? <Loading text='Loading Posts' speed={300}/>
                             : posts.map(post => <Post post={post} key={post.id}/>)
                     }
                 </React.Fragment>

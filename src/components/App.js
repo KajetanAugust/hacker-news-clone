@@ -8,6 +8,7 @@ import { ThemeProvider } from "../contexts/theme";
 import Feed from "./Feed";
 import Nav from "./Nav";
 import User from "./User";
+import PostPage from "./PostPage";
 
 
 class App extends React.Component {
@@ -35,6 +36,7 @@ class App extends React.Component {
                                 <Route exact path='/feed/top' render={() => <Feed type='top' /> }/>
                                 <Route exact path='/feed/new' render={() => <Feed type='new' /> }/>
                                 <Route path='/user' component={User} />
+                                <Route path='/post' component={PostPage} />
                             </Switch>
 
                         </div>

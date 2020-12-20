@@ -88,3 +88,21 @@ nav button {
   color: #EAE0D5;
 }
 
+.user-data {
+  margin-bottom: 50px;
+}
+
+.user-data h1 {
+  margin-bottom: 5px;
+}
+
+.user-data span {
+  color: #8A8E91;
+}
+
+.comment-box-light, .comment-box-dark {
+  background-color: rgba(138,142,145, 0.2);
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}

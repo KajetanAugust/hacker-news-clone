@@ -1,5 +1,6 @@
 import React from 'react'
 import queryString from "query-string";
+import { ThemeConsumer } from "../contexts/theme";
 
 import { fetchItem, fetchComments } from "../utils/API";
 
@@ -23,7 +24,7 @@ export default class PostPage extends React.Component {
             .then(res => {
                 this.setState({
                     post: res,
-                    loadingPost: false
+                    loadingPost: false,
                 })
                 return fetchComments(res.kids)
             }).then(comments => this.setState({
@@ -34,29 +35,35 @@ export default class PostPage extends React.Component {
     }
 
     render() {
-        console.log(this.state.post)
-        console.log(this.state.comments)
+        // console.log(this.state.post)
+        // console.log(this.state.comments)
         const {post, comments, loadingComments, loadingPost} = this.state
         return (
+            <ThemeConsumer>
+                {({theme}) => (
+                    <div className={`post-page-wrapper-${theme}`}>
+                        <React.Fragment>
+                            {
+                                loadingPost
+                                    ? <Loading text='Loading Post' speed={300}/>
+                                    : <Post key={post.id} post={post} />
+                            }
+                        </React.Fragment>
+                        {
+                            !loadingPost && (
+                                <React.Fragment>
+                                    {
+                                        loadingComments
+                                            ? <Loading text='Loading Comments' speed={300}/>
+                                            : comments.map( comment => <Comment key={comment.id} comment={comment}/>)
+                                    }
+                                </React.Fragment>
+                            )
+                        }
 
-            <div>
-
-
-                <React.Fragment>
-                    {// TODO: Change post info font size
-                        loadingPost
-                            ? <Loading text='Loading Post' speed={300}/>
-                            : <Post key={post.id} post={post} />
-                    }
-                </React.Fragment>
-                <React.Fragment>
-                    {
-                        loadingComments
-                            ? <Loading text='Loading Post' speed={300}/>
-                            : comments.map( comment => <Comment key={comment.id} comment={comment}/>)
-                    }
-                </React.Fragment>
-            </div>
+                    </div>
+                )}
+            </ThemeConsumer>
         )
     }
 }

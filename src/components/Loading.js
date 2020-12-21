@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'react'
 
 const styles = {
     content: {
@@ -38,6 +37,7 @@ export default class Loading extends React.Component {
     render() {
 
         return (
+
             <p style={styles.content}>
                 {this.state.content}
             </p>

@@ -6,6 +6,10 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
+.feed {
+  margin-top: 25px;
+}
+
 .light {
   background-color: white;
 }
@@ -46,8 +50,8 @@ nav button {
 }
 
 .dark {
-  background-color: #131515;
-  color: #EAE0D5;
+  background-color: #121619;
+  color: #FBFEF9;
   min-height: 100vh;
 }
 
@@ -57,7 +61,7 @@ nav button {
 }
 
 .nav-link-dark {
-  color: #EAE0D5;
+  color: #FBFEF9;
   text-decoration: none;
 }
 
@@ -65,7 +69,11 @@ nav button {
   color: #A3320B;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1rem;
+}
+
+.dark .link {
+  color: rgba(251, 254, 249, 0.8);
 }
 
 .post-container-light, .post-container-dark {
@@ -73,11 +81,11 @@ nav button {
 }
 
 .meta-info-light span a {
-  color: #131515;
+  color: #121619;
 }
 
 .meta-info-dark span a {
-  color: #8A8E91;
+  color: rgba(251, 254, 249, 0.8);
 }
 
 .meta-info-light span {
@@ -85,7 +93,7 @@ nav button {
 }
 
 .meta-info-dark span {
-  color: #EAE0D5;
+  color: #FBFEF9;
 }
 
 .user-data {
@@ -105,4 +113,32 @@ nav button {
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 15px;
+}
+
+.comment-box-dark {
+  background-color: rgba(138, 142, 145, 0.1);
+}
+
+
+.comment-text-light a {
+  color: #A3320B;
+  font-weight: 500;
+}
+
+.comment-text-dark a {
+  color: #A3320B;
+  font-weight: 500;
+}
+
+.comment-text-dark {
+  color: #FBFEF9;
+}
+
+
+.post-page-wrapper-light .link, .post-page-wrapper-dark .link {
+  font-size: 2rem;
+}
+
+.post-page-wrapper-dark, .post-page-wrapper-light {
+  padding: 25px 0;
 }

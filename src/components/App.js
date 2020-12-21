@@ -37,6 +37,7 @@ class App extends React.Component {
                                 <Route exact path='/feed/new' render={() => <Feed type='new' /> }/>
                                 <Route path='/user' component={User} />
                                 <Route path='/post' component={PostPage} />
+                            {/*    TODO: add 404 route*/}
                             </Switch>
 
                         </div>

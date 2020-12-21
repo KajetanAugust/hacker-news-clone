@@ -37,16 +37,15 @@ export default class User extends React.Component {
 
     render() {
 
-        const { user, posts, loadingUser, loadingPosts, error } = this.state
-        console.log(user)
-        console.log(posts)
+        const { user, posts, loadingUser, loadingPosts } = this.state
+        // console.log(user)
+        // console.log(posts)
         return(
             <div>
                 <React.Fragment>
                     {
                         loadingUser
                             ? <Loading text='Loading User Data' speed={300}/>
-                            //TODO: Add user metadata here
                             : <div className='user-data'>
                                 <h1>{user.id}</h1>
                                 <span>joined <b>{formatDate(user.created)}</b> has <b>{user.karma}</b> karma</span>
@@ -54,13 +53,19 @@ export default class User extends React.Component {
                     }
                 </React.Fragment>
                 <h2>Posts</h2>
-                <React.Fragment>
-                    {
-                        loadingPosts
-                            ? <Loading text='Loading Posts' speed={300}/>
-                            : posts.map(post => <Post post={post} key={post.id}/>)
-                    }
-                </React.Fragment>
+                {
+                    !loadingUser && (
+                        <React.Fragment>
+                            {
+                                loadingPosts
+                                ? <Loading text='Loading Posts' speed={300}/>
+                                : posts.map(post => <Post post={post} key={post.id}/>)
+                            }
+                        </React.Fragment>
+                    )
+                }
+
+
             </div>
         )
     }

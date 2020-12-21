@@ -42,13 +42,13 @@ class Feed extends React.Component{
 
     render() {
 
-        const { posts, error, loading } = this.state
+        const { posts, loading } = this.state
         // console.log(this.state.posts)
 
         return (
 
 
-            <div className="App">
+            <div className="feed">
                 {loading
                     ? <Loading text='Loading' speed={300}/>
                     : posts.map(post => <Post key={post.id} post={post}/>)

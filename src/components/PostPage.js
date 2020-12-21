@@ -7,6 +7,7 @@ import { fetchItem, fetchComments } from "../utils/API";
 import Post from "./Post";
 import Loading from "./Loading";
 import Comment from "./Comment";
+import ErrorMessage from "./ErrorMessage";
 
 export default class PostPage extends React.Component {
 
@@ -14,7 +15,8 @@ export default class PostPage extends React.Component {
         post: null,
         comments: null,
         loadingPost: true,
-        loadingComments: true
+        loadingComments: true,
+        error: null
     }
 
     componentDidMount() {
@@ -25,23 +27,33 @@ export default class PostPage extends React.Component {
                 this.setState({
                     post: res,
                     loadingPost: false,
+                    error: null
                 })
                 return fetchComments(res.kids)
             }).then(comments => this.setState({
                 comments: comments,
-                loadingComments: false
-        }))
+                loadingComments: false,
+                error: null
+            })).catch(({ message }) => this.setState({
+                error: message,
+                loadingUser: false,
+                loadingPosts: false
+            }))
 
     }
 
     render() {
         // console.log(this.state.post)
         // console.log(this.state.comments)
-        const {post, comments, loadingComments, loadingPost} = this.state
+        const {post, comments, loadingComments, loadingPost, error} = this.state
         return (
             <ThemeConsumer>
                 {({theme}) => (
+
+
                     <div className={`post-page-wrapper-${theme}`}>
+                        error !== null && <ErrorMessage message={error} />
+
                         <React.Fragment>
                             {
                                 loadingPost

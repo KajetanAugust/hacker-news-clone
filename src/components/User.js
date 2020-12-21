@@ -4,6 +4,7 @@ import { fetchUser, fetchPosts } from "../utils/API";
 import Loading from "./Loading";
 import Post from "./Post";
 import { formatDate } from "../utils/helpers";
+import ErrorMessage from "./ErrorMessage";
 
 export default class User extends React.Component {
 
@@ -37,11 +38,13 @@ export default class User extends React.Component {
 
     render() {
 
-        const { user, posts, loadingUser, loadingPosts } = this.state
+        const { user, posts, loadingUser, loadingPosts, error } = this.state
         // console.log(user)
         // console.log(posts)
+
         return(
             <div>
+                error !== null && <ErrorMessage message={error} />
                 <React.Fragment>
                     {
                         loadingUser

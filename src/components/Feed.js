@@ -3,6 +3,7 @@ import { fetchMainPosts } from "../utils/API";
 
 import Post from "./Post";
 import Loading from "./Loading";
+import ErrorMessage from "./ErrorMessage";
 
 class Feed extends React.Component{
 
@@ -41,17 +42,20 @@ class Feed extends React.Component{
     }
 
     render() {
-
-        const { posts, loading } = this.state
+        const { posts, loading, error } = this.state
         // console.log(this.state.posts)
 
         return (
 
-
             <div className="feed">
-                {loading
-                    ? <Loading text='Loading' speed={300}/>
-                    : posts.map(post => <Post key={post.id} post={post}/>)
+
+                {
+                    error !== null
+                        ? <ErrorMessage message={error} />
+                        : (loading
+                            ? <Loading text='Loading' speed={300}/>
+                            : posts.map(post => <Post key={post.id} post={post}/>)
+                        )
                 }
             </div>
         );

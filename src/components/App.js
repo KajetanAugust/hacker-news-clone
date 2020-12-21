@@ -9,6 +9,7 @@ import Feed from "./Feed";
 import Nav from "./Nav";
 import User from "./User";
 import PostPage from "./PostPage";
+import ErrorMessage from "./ErrorMessage";
 
 
 class App extends React.Component {
@@ -37,7 +38,7 @@ class App extends React.Component {
                                 <Route exact path='/feed/new' render={() => <Feed type='new' /> }/>
                                 <Route path='/user' component={User} />
                                 <Route path='/post' component={PostPage} />
-                            {/*    TODO: add 404 route*/}
+                                <Route render={() => <ErrorMessage message='Page not Found' />} />
                             </Switch>
 
                         </div>

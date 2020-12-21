@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { ThemeConsumer } from '../contexts/theme'
 
 export default function Title ({ url, title, id }) {
     return url

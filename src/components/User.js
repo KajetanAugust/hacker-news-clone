@@ -44,7 +44,7 @@ export default class User extends React.Component {
 
         return(
             <div>
-                error !== null && <ErrorMessage message={error} />
+                {error !== null && <ErrorMessage message={error} />}
                 <React.Fragment>
                     {
                         loadingUser

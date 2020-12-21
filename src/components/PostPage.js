@@ -52,7 +52,7 @@ export default class PostPage extends React.Component {
 
 
                     <div className={`post-page-wrapper-${theme}`}>
-                        error !== null && <ErrorMessage message={error} />
+                        {error !== null && <ErrorMessage message={error}/>}
 
                         <React.Fragment>
                             {
